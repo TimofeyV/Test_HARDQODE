@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}" >
+{% endblock %}
+{% block navbar %}
+      <nav class="navbar">
+         <button><a href="{% url 'home'%}" class="active">ГЛАВНАЯ</a></button>
+         <button><a href="{% url 'products:catalog' %}">ПРОДУКТЫ</a></button>
+         <button><a href="{% url 'login' %}" >ВХОД</a></button>
+
+      </nav>
+{% endblock %}
+
+{% block body %}
+    <section class="home">
+        <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate doloremque eveniet fugiat maiores nostrum numquam possimus ratione similique soluta vitae! Accusamus, aliquid animi aspernatur delectus error fugit incidunt ipsam iure magni maiores minus molestias, officia provident saepe sunt suscipit totam veritatis voluptate voluptatibus, voluptatum. Commodi cupiditate eaque et magni veniam! A aliquam atque consequuntur doloremque ducimus, eos eum excepturi facere facilis impedit inventore itaque laboriosam natus odit possimus, quia quibusdam ut? Delectus dolor eaque et exercitationem hic iure molestiae praesentium sequi sunt veritatis? Assumenda at, cupiditate delectus deserunt dolorum earum et eveniet fugit impedit ipsam ipsum itaque nam nobis nostrum numquam obcaecati odio officiis optio pariatur rem repellat repudiandae rerum sit suscipit tempora temporibus vel veritatis vero voluptas voluptatibus. Culpa deleniti dolorum error expedita explicabo illo ipsum labore molestiae officia pariatur praesentium quae quasi qui quo quod, rerum tempore. A adipisci aliquid animi commodi debitis deleniti dolores error exercitationem hic illo in ipsum labore minima modi, nulla numquam, perferendis porro quasi rem sequi voluptas voluptatibus, voluptatum. Accusamus accusantium aspernatur, cum dicta dolores ducimus est exercitationem fuga, libero nam natus possimus quas quisquam reiciendis vero? At dolore esse, illo, inventore ipsam maiores mollitia nihil odit officia pariatur sequi similique veritatis voluptas?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem consequuntur distinctio dolore facere fugiat incidunt labore minus molestiae, nostrum nulla numquam odit quam sequi, sint soluta tempore, tenetur veniam voluptates.</p>
+        </div>
+    </section>
+{% endblock %}

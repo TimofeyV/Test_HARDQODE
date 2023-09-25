@@ -1,0 +1,80 @@
+.container-md{
+    width: 97%;
+    margin-left: 1.5%;
+    margin-bottom:20px;
+    margin-top:20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,.1);
+    padding: 20px 470px;
+
+}
+
+.container-md h2{
+    color: red;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+    min-width: 150px;
+    margin: 15px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    color: #313133;
+    background: #000000;
+    background: linear-gradient(90deg, rgb(61, 61, 61) 0%, rgb(131, 131, 131) 100%);
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 12px 12px 24px rgba(128, 128, 128, 0.64);
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    padding: 10px;
+}
+
+.container-md form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.container-md 
+input#id_username,
+input#id_password,
+input#id_password1,
+input#id_password2 {
+    font-family: Poppins-Medium;
+    margin-left: 5%;
+    font-size: 16px;
+    border-radius: 22px;
+    color: #e9e2e2;
+    line-height: 1.2;
+    display: block;
+    width: 90%;
+    height: 35px;
+    background: 0 0;
+    padding: 0 7px 0 43px;
+}
+
+
+.container-md p{
+    display: flex;
+    color: red;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-md .p a{
+    margin-left: 10px;
+    text-decoration: none;
+}

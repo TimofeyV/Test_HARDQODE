@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+    ВХОД
+{% endblock %}
+
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'main/css/catalog.css' %}" >
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}" >
+    <link rel="stylesheet" href="{% static 'main/css/login.css' %}" >
+{% endblock %}
+
+{% block navbar %}
+      <nav class="navbar">
+         <button><a href="{% url 'home'%}" >ГЛАВНАЯ</a></button>
+         <button><a href="{% url 'profile' %}">ПРОФИЛЬ</a></button>
+         <button><a href="{% url 'products:catalog' %}" class="active">ПРОДУКТЫ</a></button>
+         <button><a href="{% url 'login' %}" >ВХОД</a></button>
+      </nav>
+{% endblock %}
+
+{% block body %}
+<div class="container-md">
+    <form method="POST" novalidate>
+        {% csrf_token %}
+        <h2>Войти</h2>
+        {{form.as_p}}
+        <input class="login" type="submit" value="Войти" />
+        <p>Нет аккаунта? <a href="{%url 'register' %}">Зарегистрироваться</a></p>
+    </form>
+    </div>
+{% endblock %}

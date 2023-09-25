@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    ПРОДУКТЫ
+{% endblock %}
+
+
+{% block link %}
+    
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}" >
+    <link rel="stylesheet" href="{% static 'main/css/catalog.css' %}" >
+{% endblock %}
+
+{% block navbar %}
+      <nav class="navbar">
+         <button><a href="{% url 'home'%}" >ГЛАВНАЯ</a></button>
+         <button><a href="{% url 'products:catalog' %}" class="active">ПРОДУКТЫ</a></button>
+         <button><a href="{% url 'login' %}" >ВХОД</a></button>
+      </nav>
+{% endblock %}
+
+{% block body %}
+    <section class="home">
+        <div class="catalog-content">
+            {%for el in products%}     
+                {% for p in lessons %}
+                        <a href="{% url 'products:lesson_detail' el.id p.id %}">
+                            <div class="chapter">
+                                <p>{{p.title}}</p>
+                            </div>
+                        </a>       
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HARDQODE{% block title %}{% endblock %}</title>
+    {% block link %}
+    {% endblock %}
+    <script src="{% static 'products/js/jquery.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}" >
+<!--    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200&display=swap" rel="stylesheet">-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="top">
+            <div class="info">
+                <p>Сайт свободного обучения </p>
+            </div>
+
+            </div>
+        </div>
+        <div class="navbar">
+             {% block navbar %}
+             {% endblock %}
+        </div>
+    </header>
+{% block body %}
+
+{% endblock %}
+    <footer class="footer">
+        
+    </footer>
+</body>
+</html>

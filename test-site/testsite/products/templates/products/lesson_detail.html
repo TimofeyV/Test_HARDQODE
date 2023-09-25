@@ -1,0 +1,97 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+    ПРОДУКТЫ
+{% endblock %}
+
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'main/css/catalog.css' %}" >
+    <link rel="stylesheet" href="{% static 'main/css/detail.css' %}" >
+{% endblock %}
+
+{% block navbar %}
+      <nav class="navbar">
+         <button><a href="{% url 'home'%}" >ГЛАВНАЯ</a></button>
+         <button><a href="{% url 'products:catalog' %}" class="active">ПРОДУКТЫ</a></button>
+         <button><a href="{% url 'login' %}" >ВХОД</a></button>
+      </nav>
+{% endblock %}
+
+{% block body %}
+<section class="home">
+    <div class="content">
+        <h3>{{lesson.title}}</h3>
+        <div id="player"></div>
+        <p>Длительность видео - {{lesson.duration}} (сек)</p>
+
+    </div>
+</section>
+
+
+
+<script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '360',
+          width: '640',
+          videoId: '{{ video_id }}',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setInterval(Update, 3000);
+          done = true;
+        }
+      }
+      function Current() {
+        var number = player.getCurrentTime();
+        return number
+      }
+
+      function Update() {
+        $.ajax({
+            type: 'POST',
+            url: '{% url "products:video_moment" %}',
+            data: {'moment': Current, 'lesson_id': {{lesson.id}} },
+            success: function(response) {
+                if (response.status === 'success') {
+                    console.log('Момент видео успешно обработан на сервере');
+                } else {
+                    console.log('Ошибка при обработке момента видео на сервере');
+                }
+            },
+            error: function(xhr) {
+                console.log('Ошибка при отправке AJAX-запроса');
+            }
+        });
+    }
+
+    </script>
+
+{% endblock %}
